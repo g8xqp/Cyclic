@@ -39,6 +39,12 @@ bool CyclicBuffer::WriteByte(byte b){
     return(true);
   } 
 }
+void CyclicBuffer::WriteByteForce(byte b){
+  if(WriteFull())RdPtr=IncrementPtr(RdPtr);
+  MyBuffer[WrPtr]=b;
+  WrPtr=IncrementPtr(WrPtr);
+  SetAvail();
+}
 byte CyclicBuffer::ReadByte(){
   byte b=0;
   if(ReadAvailable()){
