@@ -34,6 +34,7 @@ class CyclicBuffer{
     byte GetAvailableLen();// return number of bytes in buffer
     bool WriteFull();      // return true if buffer full
     bool WriteByte(byte b);// write byte into buffer
+    void WriteByteForce(byte b);// force byte into buffer
     byte ReadByte();       // read byte from buffer
     void Flush();          // flush buffer
     void Flush(byte p);    // flush p bytes from buffer
